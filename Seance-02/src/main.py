@@ -134,3 +134,7 @@ for i in range(len(idx)):
     #Sauvegarde du résultat 
     plt.savefig("./output/images_Q12/diag_circ_repart_vot_dep_{}.png".format(idx[i])) 
     plt.close() #Fermeture 'propre' du graphe   
+
+
+## Question 13
+ 
