@@ -80,3 +80,57 @@ print(inscrits)
 
 
 ## Question 10
+colonnes = table.columns 
+liste_sommes = []
+for i in range(len(table.columns)) :  
+    nouvelle_colonne = table[colonnes[i]]
+
+    if liste_types[i] == int :
+        notre_somme = nouvelle_colonne.sum() 
+        liste_sommes.append(notre_somme)
+
+    elif liste_types[i] == float :
+        notre_somme = nouvelle_colonne.sum() 
+        liste_sommes.append(notre_somme)
+
+print(liste_sommes) #On print en dehors de la boucle, une fois que toute la boucle est rédigée
+
+
+## Question 11
+idx = table["Code du département"]
+X = table["Inscrits"]
+Y = table["Abstentions"]
+for i in range(len(idx)):
+
+    plt.bar(["Inscrits", "Votants"], [X[i], Y[i]])
+    #Ajout des titres et de la grille
+    plt.title("Inscrits VS Votants dans le {}".format(idx[i])) #Titre principal
+    plt.ylabel("Nombre") #Titre de l'axe vertical (Y)
+    plt.grid(True)              #Ajout de la grille
+
+    #Sauvegarde du résultat 
+    plt.savefig("./output/images_Q11/ins_vs_vot_dep_{}.png".format(idx[i])) 
+    plt.close() #Fermeture 'propre' du graphe  
+
+
+
+
+## Question 12 
+idx = table ["Code du département"]
+Blan = table ["Blancs"]
+Nuls = table ["Nuls"]
+Expr = table ["Exprimés"]
+Abst = table ["Abstentions"]
+for i in range(len(idx)):
+
+    quad_val = [Blan[i], Nuls[i], Expr[i], Abst[i]]
+    quad_lab = ["Blancs", "Nuls", "Exprimés", "Abstentions"]
+
+    plt.pie(quad_val, labels= quad_lab, autopct="%1.1f%%")
+
+    #Ajout des titres et de la grille
+    plt.title("Répartition des votes dans le {}".format(idx[i])) #Titre principal
+
+    #Sauvegarde du résultat 
+    plt.savefig("./output/images_Q12/diag_circ_repart_vot_dep_{}.png".format(idx[i])) 
+    plt.close() #Fermeture 'propre' du graphe   
